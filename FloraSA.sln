@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloraSA", "FloraSA.csproj", "{1280E3F8-E63E-4AE0-B13A-131122D3FC3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1280E3F8-E63E-4AE0-B13A-131122D3FC3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1280E3F8-E63E-4AE0-B13A-131122D3FC3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1280E3F8-E63E-4AE0-B13A-131122D3FC3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1280E3F8-E63E-4AE0-B13A-131122D3FC3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6B80E7D-1563-4300-97EF-1725C9DDE03E}
+	EndGlobalSection
+EndGlobal

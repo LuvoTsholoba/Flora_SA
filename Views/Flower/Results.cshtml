@@ -1,0 +1,75 @@
+﻿@model FloraSA.Models.Flower
+@using Markdig
+
+@{
+    ViewBag.Title = "Plant Results";
+    Layout = null;
+
+    var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().DisableHtml().Build();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloraSA AI | Plant Identifier</title>
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+<body class="results-page">
+    <header class="results-header>">
+        <a href="/" class="back-link">Identify another plant</a>
+        <h1>Your plant identification</h1>
+    </header>
+
+    <main class="results-wrap">
+    @if(ViewBag.Error != null )
+    {
+        <div class="notice">
+           <p>@ViewBag.Error</p>
+           </div>
+    }
+    @if(Model == null)
+    {
+        <div class="error-box">No results available.Please upload or take a picture and try again</div>
+    }
+    else
+    {
+        <div class="results-card">
+            <aside class="image-panel">
+                @if(!String.IsNullOrEmpty(Model.ImageBase64))
+                {
+                    <img class="plant-image" src="data:@Model.ImageContentType;base64,@Model.ImageBase64" 
+                    alt="uploaded Image"; />
+                    
+                }
+                <p class="image-caption">Image submitted for AI identification</p>
+                 <p><strong>Laguage Chosen:@Model.Language</strong></p>
+
+                    <a asp-controller = "Home" asp-action="Index">Try Again</a>
+
+            </aside>
+            </div> 
+         
+           <section class="info-panel">
+        @if(!String.IsNullOrWhiteSpace(Model.AiReponse))
+        {
+            <div class="ai-content">
+                @Html.Raw(Markdown.ToHtml(Model.AiReponse,pipeline))
+                </div>
+            }
+            else
+            {
+                <p> No Ai response is returned</p>
+            }
+
+        <p class="disclaimer">AI can make mistakes, Please double-check the important details</p>
+            </section>
+
+
+    }
+
+
+    </main>
+ </body>
+ </html>

@@ -1,0 +1,162 @@
+﻿@model FloraSA.Models.Flower
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloraSA AI | Plant Identifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ 
+   
+
+      
+
+
+    <!-- Main content -->
+    <main class="container">
+
+        <section class="hero">
+            <span class="tag"> AI-POWERED PLANT IDENTIFICATION</span>
+
+            <h1>Discover the plants<br>
+                <span>around you.</span>
+            </h1>
+
+            <p>
+                Take a photo of any plant or flower and let AI help you
+                discover its name, it's description  and care instructions
+                in your preferred South African language.
+            </p>
+        </section>
+        <br />
+
+        
+
+        <!-- Upload section -->
+        <section class="upload-section">
+            <div asp-validation-summary="All"></div>
+
+            <form asp-controller="Flower" asp-action="Results" method="post" enctype="multipart/form-data">
+
+                <div class="language-select" name="Language" asp-for="Language">
+                    <select asp-for="Language" class="language-select" aria-label="Choose language">
+                        <option value="English">English</option>
+                        <option value="isiZulu">isiZulu</option>
+                        <option value="isiXhosa">isiXhosa</option>
+                        <option value="Afrikaans">Afrikaans</option>
+                        <option value="Sepedi">Sepedi</option>
+                        <option value="Setswana">Setswana</option>
+                        <option value="Sesotho">Sesotho</option>
+                        <option value="siSwati">siSwati</option>
+                        <option value="Tshivenda">Tshivenda</option>
+                        <option value="itsonga">itsonga</option>
+                        <option value="isiNdebele">isiNdebele</option>
+                    </select>
+                </div>
+
+
+                <label for="plantImage" class="upload-box">
+
+                    <div class="plant-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=500&q=80"
+                            alt="Green leafy plant"
+                        >
+                    </div>
+
+                    <div class="upload-content">
+                        <div class="camera-icon">📷</div>
+
+                        <h2>Add a plant photo</h2>
+
+                        <p>
+                            Drag and drop your image here,<br>
+                            or <span>browse files</span>
+                        </p>
+
+                        <small>JPG, PNG or WEBP · Maximum 10 MB</small>
+                    </div>
+
+                </label>
+
+                <div class="action-buttons">
+                    <label for="takePicture" class="btn btn-camera">
+                         Take a photo
+                    </label>
+                    <input asp-for="takePicture" type="file" id="takePicture" accept="image/*" capture="environment" hidden>
+                  </div>
+
+                <div class="action-buttons">
+
+                    <label for="UploadImage" class="btn btn-upload">
+                         Upload image
+                        
+                    </label>
+                    <input asp-for="UploadImage" type="file" id="UploadImage" accept=".png,.jpg,.jpeg,.webp" hidden>
+                </div>
+                    
+
+
+                <div class="action-buttons">
+     
+                <button     type="submit" class="analyze-btn">
+                     Analyze with AI
+               
+                </button>
+               </div>
+
+                <p class="privacy-note">
+                    🌿 Your journey into nature starts here.
+                </p>
+
+                </form>
+
+            </>
+        </section>
+
+        <!-- Benefits -->
+        <section class="benefits" id="how-it-works">
+
+            <div class="benefit">
+                <div class="benefit-icon">🌱</div>
+                <div>
+                    <h3>Identify plants</h3>
+                    <p>Discover plant names and characteristics.</p>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <div class="benefit-icon">🌍</div>
+                <div>
+                    <h3>Learn in your language</h3>
+                    <p>Explore plant knowledge in all 11 languages.</p>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <div class="benefit-icon">🍃</div>
+                <div>
+                    <h3>Explore nature</h3>
+                    <p>Learn how to grow and care for plants.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 FloraSA AI · Growing knowledge, one plant at a time.</p>
+    </footer>
+
+</body>
+</html>
