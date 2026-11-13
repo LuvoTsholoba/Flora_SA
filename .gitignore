@@ -1,0 +1,22 @@
+</>gitignore
+#Visual Studio
+.vs/
+*.suo
+
+#Build files
+bin/
+obj/
+
+# User Secrete
+secrets.json
+
+# Local Configuration
+appsettings.Development.json
+
+# Database files(review before uploading)
+*.db-shm
+*db-wa1
+
+# Operating system
+.DS_Store
+Thumbs.db
